@@ -1,15 +1,13 @@
 import os
 import json
 from dotenv import load_dotenv
-import google.generativeai as genai
+from google import genai
 
 load_dotenv()
 
-genai.configure(
+client = genai.Client(
     api_key=os.getenv("GEMINI_API_KEY")
 )
-
-model = genai.GenerativeModel("gemini-2.5-flash")
 
 def analyze_resume(resume_text, user_goal):
 
@@ -41,8 +39,10 @@ Resume:
 """
 
     try:
-
-        response = model.generate_content(prompt)
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=prompt
+        )
 
         content = response.text.strip()
 
@@ -52,7 +52,6 @@ Resume:
         return json.loads(content[start:end])
 
     except Exception as e:
-
         return {
             "skills": [],
             "missing_skills": [],
