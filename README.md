@@ -2,6 +2,16 @@
 
 An AI-powered Resume Analysis Platform built using Flask, Gemini AI, SQLAlchemy, and TiDB Cloud.
 
+## 🌐 Live Demo
+
+🔗 Live Application: https://ai-career-copilot-71bm.onrender.com
+
+Test Credentials:
+- Create a new account using Sign Up
+- Login and upload your resume for AI-powered analysis
+
+---
+
 ## 📌 Overview
 
 AI Career Copilot helps students and job seekers analyze their resumes and identify:
